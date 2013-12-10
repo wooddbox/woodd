@@ -572,6 +572,7 @@ function my_masonry() {
 					});
 				});
 			</script>
+
 		<?php
 		}
 	}
@@ -596,21 +597,82 @@ add_action('wp_enqueue_scripts', 'custom_theme_js');
  */
 function woodd_infinite_scroll_js() {
 	if( ! is_singular() ) { ?>
-	<script>
-	var infinite_scroll = {
-		loading: {
-			img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
-			msgText: "<?php _e( 'Loading the next set of posts...', 'woodd' ); ?>",
-			finishedMsg: "<?php _e( 'All posts loaded.', 'woodd' ); ?>"
-		},
-		"nextSelector":".nav-previous a",
-		"navSelector":".paging-navigation",
-		"itemSelector":".element",
-		"contentSelector":".container"
-	};
-	jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
-	</script>
+
+	 <script type="text/javascript">
+
+
+
+   jQuery(document).ready(function($) {
+      var $container = $('#content');
+      $container.isotope({
+        itemSelector : '.element'
+      });
+
+      $container.infinitescroll({
+
+        navSelector  : '.paging-navigation',    // selector for the paged navigation 
+        nextSelector : '.nav-previous a',  // selector for the NEXT link (to page 2)
+        itemSelector : '.element',     // selector for all items you'll retrieve
+  		bufferPx     : 100,
+                 // increase this number if you want infscroll to fire quicker
+                 // (a high number means a user will not see the loading message)
+                 // new in 1.2
+                 // default: 40
+ 
+  		errorCallback: function(){},
+                 // called when a requested page 404's or when there is no more content
+                 // new in 1.2                  
+        animate      : true,      
+                 // boolean, if the page will do an animated scroll when new content loads
+                 // default: false
+
+        },
+
+        // call Isotope as a callback
+
+        function( newElements ) {
+          $container.isotope( 'appended', $( newElements ) ); 
+        }
+
+      );
+
+    });
+
+  </script>
 	<?php
 	}
 }
 add_action( 'wp_footer', 'woodd_infinite_scroll_js',100 );
+
+
+/**
+ * infinite-scroll
+ */
+
+function infinite_scroll_js()
+
+{
+
+	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
+
+        wp_enqueue_script('infinite_scroll');	
+
+}
+
+add_action('wp_enqueue_scripts', 'infinite_scroll_js');
+
+/**
+ * If we go beyond the last page and request a page that doesn't exist,
+ * force WordPress to return a 404.
+ * See http://core.trac.wordpress.org/ticket/15770
+ */
+function custom_paged_404_fix() {
+	
+	$paged 	= (get_query_var('paged')) ? get_query_var('paged') : 1;
+	if (($paged && $paged > 1) && !have_posts())
+		{
+		header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
+		header("Status: 404 Not Found");
+		}	
+	}
+add_action( 'wp', 'custom_paged_404_fix' );

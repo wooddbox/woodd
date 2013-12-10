@@ -12,7 +12,7 @@
  /**
   * Initialization. Add our script if needed on this page.
   */
- function pbd_alp_init() {
+ function woodd_alp_init() {
  	global $wp_query;
  
  	// Add code to index pages.
@@ -43,7 +43,7 @@
  		// Add some parameters for the JS.
  		wp_localize_script(
  			'woodd-apl-load-posts',
- 			'pbd_alp',
+ 			'woodd_alp',
  			array(
  				'startPage' => $paged,
  				'maxPages' => $max,
@@ -52,6 +52,6 @@
  		);
  	}
  }
- add_action('template_redirect', 'pbd_alp_init');
+ add_action('template_redirect', 'woodd_alp_init');
  
  ?>

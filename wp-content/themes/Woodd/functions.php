@@ -579,21 +579,38 @@ function my_masonry() {
 
 add_action('init', 'my_masonry');
 
+
 /**
  * Load javascripts used by the theme
  */
-function wp_infinitepaginate(){   
-    $loopFile        = $_POST['loop_file'];  
-    $paged           = $_POST['page_no'];  
-    $posts_per_page  = get_option('posts_per_page');  
- 
-    # Load the posts  
-    query_posts(array('paged' => $paged ));   
-    get_template_part( $loopFile );  
-  
-    exit;  
-} 
+function custom_theme_js(){
+	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
+	if( ! is_singular() ) {
+		wp_enqueue_script('infinite_scroll');
+	}
+}
+add_action('wp_enqueue_scripts', 'custom_theme_js');
 
-add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate');           // for logged in user
-add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate');    // if user not logged in
-
+/**
+ * Infinite Scroll
+ */
+function woodd_infinite_scroll_js() {
+	if( ! is_singular() ) { ?>
+	<script>
+	var infinite_scroll = {
+		loading: {
+			img: "<?php echo get_template_directory_uri(); ?>/images/ajax-loader.gif",
+			msgText: "<?php _e( 'Loading the next set of posts...', 'woodd' ); ?>",
+			finishedMsg: "<?php _e( 'All posts loaded.', 'woodd' ); ?>"
+		},
+		"nextSelector":".nav-previous a",
+		"navSelector":".paging-navigation",
+		"itemSelector":".element",
+		"contentSelector":".container"
+	};
+	jQuery( infinite_scroll.contentSelector ).infinitescroll( infinite_scroll );
+	</script>
+	<?php
+	}
+}
+add_action( 'wp_footer', 'woodd_infinite_scroll_js',100 );

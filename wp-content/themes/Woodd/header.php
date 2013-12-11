@@ -28,46 +28,6 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
- <script type="text/javascript">
-            jQuery(document).ready(function($) {
-                var count = 2;
-                var total = <?php echo $wp_query->max_num_pages; ?>;
-                $(window).scroll(function(){
-                    console.log(count);
-                        if  ($(window).scrollTop() == $(document).height() - $(window).height()){
-/*                            $('#colophon').waypoint({
-                                offset: 'bottom-in-view',
-                                handler : function(direction){*/
-                                    
-                                    if (count >= total){
-                                        return false;
-                                    }
-                                    else
-                                    {
-                                       loadArticle(count);
-                                    }
-                                    count++;
-                                }
-                            }); 
-                   
-                function loadArticle(pageNumber){    
-                        $('a#inifiniteLoader').show('fast');
-                        $.ajax({
-                            url: "<?php bloginfo('wpurl') ?>/wp-admin/admin-ajax.php",
-                            type:'POST',
-                            data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=loop', 
-                            success: function(html){
-                                $('a#inifiniteLoader').fadeOut(2000);
-                                if ( html != 0 ) {
-                                $("#content").append(html);   } // This will be the div where our content will be loaded
-                            }
-                        });
-                    return false;
-                }
-
-            });
-
-        </script>
 
 </head>
 

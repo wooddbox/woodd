@@ -54,7 +54,7 @@ echo $category->slug . ' ';} ?>">
 
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
-		<?php endif; ?>
+		<?php endif; ?>
 
 	</div><!-- #content -->
 		<?php twentythirteen_paging_nav(); ?>

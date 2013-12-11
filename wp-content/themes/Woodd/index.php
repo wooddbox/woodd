@@ -16,8 +16,7 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<?php
+				<?php
 	 	$terms = get_terms("category");
 	 	$count = count($terms); ?>
 	 	<ul id="filters">
@@ -33,27 +32,32 @@ get_header(); ?>
 		}
 		?>
 
-		<div id="content" class="site-content container" role="main">
-		<?php if ( have_posts() ) : ?>
+		<!--BEGIN #content -->
+    <div id="content">
+    	
+    
+
+			
+			
+			slider
+			
+			<?php if ( have_posts() ) : ?>
 
 			<?php /* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				
-				<div class="element <?php foreach(get_the_category() as $category) {
+				<div class="item normal element <?php foreach(get_the_category() as $category) {
 echo $category->slug . ' ';} ?>">
 				<?php get_template_part( 'content', get_post_format() ); ?>
 				</div>
 			<?php endwhile; ?>
 
-			
-
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
-		<?php endif; ?>
+		<?php endif; ?>
 
-		</div><!-- #content -->
+	</div><!-- #content -->
 		<?php twentythirteen_paging_nav(); ?>
-	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -64,21 +64,81 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<div id="page" class="hfeed site">
-		<header id="masthead" class="site-header" role="banner">
-			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-				<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-			</a>
 
-			<div id="navbar" class="navbar">
-				<nav id="site-navigation" class="navigation main-navigation" role="navigation">
-					<h3 class="menu-toggle"><?php _e( 'Menu', 'twentythirteen' ); ?></h3>
-					<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'twentythirteen' ); ?>"><?php _e( 'Skip to content', 'twentythirteen' ); ?></a>
-					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) ); ?>
-					<?php get_search_form(); ?>
-				</nav><!-- #site-navigation -->
-			</div><!-- #navbar -->
-		</header><!-- #masthead -->
+<!-- BEGIN #wrapper-->
+<div id="wrapper">
 
-		<div id="main" class="site-main">
+    <!-- BEGIN #page-->
+    <div id="page">
+
+
+        <!-- BEGIN #top-bar-->
+        <div id="top-bar">
+
+        <!-- END #top-bar-->
+        </div>
+
+        <!-- BEGIN #header-->
+        <div id="header" class="clearfix">
+
+            <?php $logo = get_option('dt_custom_logo'); ?>
+
+            <div id="logo">
+
+            <?php if ($logo == '' || !$logo): ?>
+
+                <?php if (is_home() || is_front_page()): ?>
+
+                    <h1 id="site-title"><span><a href="<?php echo home_url() ?>/" title="<?php bloginfo('name') ?>" rel="home"><?php bloginfo('name') ?></a></span></h1>
+
+                <?php else: ?>
+
+                    <div id="site-title"><a href="<?php echo home_url() ?>/" title="<?php bloginfo('name') ?>" rel="home"><?php bloginfo('name') ?></a></div>
+
+                <?php endif; ?>
+
+            <?php else: ?>
+
+                <?php if (is_home() || is_front_page()): ?>
+
+                    <h1 id="site-title"><span><a href="<?php echo home_url() ?>/" title="<?php bloginfo('name') ?> - <?php bloginfo('description') ?>" rel="home"><img class="logo" alt="<?php bloginfo('name') ?>" src="<?php echo stripslashes($logo); ?>" /></a></span></h1>
+
+                <?php else: ?>
+
+                    <div id="site-title"><span><a href="<?php echo home_url() ?>/" title="<?php bloginfo('name') ?> - <?php bloginfo('description') ?>" rel="home"><img class="logo" alt="<?php bloginfo('name') ?>" src="<?php echo stripslashes($logo); ?>" /></a></span></div>
+
+                <?php endif; ?>
+
+            <?php endif; ?>
+
+            <!-- END #logo -->
+            </div>
+
+            <!-- BEGIN #primary-menu -->
+            <div id="primary-menu" class="clearfix">
+
+                <?php if ( has_nav_menu( 'primary-menu' ) ) : wp_nav_menu( array( 'theme_location' => 'primary-menu' ) ); endif; ?>
+
+            <!-- END #primary-menu -->
+            </div>
+
+        <!-- END #header -->
+        </div>
+
+welcome
+        <?php if(is_home() || is_front_page() && $welcome != '') : ?>
+
+        <h3 id="home-title"><?php echo stripslashes(htmlspecialchars_decode(nl2br($welcome))); ?></h3>
+
+        <?php endif; ?>
+
+        <div id="main" class="clearfix">
+
+            <div id="container" class="clearfix">
+
+                <?php if(!is_home() || !is_front_page()) : ?>
+
+                <div id="breadcrumb-wrap" class="clearfix">
+                  breadcrump
+                </div>
+                <?php endif; ?>

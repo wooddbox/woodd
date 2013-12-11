@@ -556,7 +556,7 @@ function my_masonry() {
 		function add_my_masonry() { ?>
 			<script>
 				jQuery(document).ready(function($){
-					var $container = $('.container');
+					var $container = $('#content');
 					$container.isotope({ layoutMode : 'fitRows' });
 					// filter items when filter link is clicked
 					$('#filters a').click(function(){
@@ -567,7 +567,7 @@ function my_masonry() {
 					$('#sort-by a').click(function(){
 					  // get href attribute, minus the '#'
 					  var sortName = $(this).attr('href').slice(1);
-					  $('.container').isotope({ sortBy : sortName });
+					  $('#content').isotope({ sortBy : sortName });
 					  return false;
 					});
 				});
@@ -629,7 +629,8 @@ function woodd_infinite_scroll_js() {
   		errorCallback: function(){},
                  // called when a requested page 404's or when there is no more content
                  // new in 1.2                  
-        animate      : true,      
+        extraScrollPx: 0,  
+        animate      : false,      
                  // boolean, if the page will do an animated scroll when new content loads
                  // default: false
         loading: {

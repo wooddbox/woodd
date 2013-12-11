@@ -462,6 +462,8 @@ hr {
 }
 
 
+
+
 /**
  * 2.0 Repeatable Patterns
  * ----------------------------------------------------------------------------
@@ -1011,6 +1013,11 @@ ul.nav-menu li:hover > ul,
     display:none;  
 } 
 
+#content {
+	width: 1180px;
+	margin: 0 auto;
+}
+
 .container {
   /* either of these will work for horizontal Isotope layouts */
  	width: 80%;
@@ -1019,18 +1026,18 @@ ul.nav-menu li:hover > ul,
 
 
 .element, {
-	width: 400px;
+	width: 3600px;
 	height: 500px;
 	background-color:#f7f5e7;
-	margin-right: 20px;
-	margin-bottom: 20px;
+	margin-right: 30px;
+	margin-bottom: 30px;
 }	
 
 .home .hentry  {
-	width: 400px;
+	width: 360px;
 	height: 500px;
-	margin-right: 20px;
-	margin-bottom: 20px;
+	margin-right: 30px;
+	margin-bottom: 30px;
 	border-radius: 10px;
 	padding: 10px;
 }

@@ -37,9 +37,10 @@ get_header(); ?>
     	
     
 
+			<div class="hentry">slider</div>
+			<div class="hentry">slider</div>
 			
 			
-			slider
 			
 			<?php if ( have_posts() ) : ?>
 

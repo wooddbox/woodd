@@ -613,7 +613,14 @@ function woodd_infinite_scroll_js() {
         navSelector  : '.paging-navigation',    // selector for the paged navigation 
         nextSelector : '.nav-previous a',  // selector for the NEXT link (to page 2)
         itemSelector : '.element',     // selector for all items you'll retrieve
-  		bufferPx     : 100,
+        loadingText  : "",      
+                 // text accompanying loading image
+                 // default: "<em>Loading the next set of posts...</em>"
+        donetext     : "" ,
+                 // text displayed when all items have been retrieved
+                 // default: "<em>Congratulations, you've reached the end of the internet.</em>"
+ 
+  		bufferPx     : 50,
                  // increase this number if you want infscroll to fire quicker
                  // (a high number means a user will not see the loading message)
                  // new in 1.2
@@ -625,6 +632,11 @@ function woodd_infinite_scroll_js() {
         animate      : true,      
                  // boolean, if the page will do an animated scroll when new content loads
                  // default: false
+        loading: {
+
+            finishedMsg: '',
+            img: ''
+          }
 
         },
 

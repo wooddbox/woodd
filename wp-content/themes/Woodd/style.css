@@ -1013,19 +1013,25 @@ ul.nav-menu li:hover > ul,
 
 .container {
   /* either of these will work for horizontal Isotope layouts */
- 	height: 80%;
- 	height: 480px;
- 	width: 90%;
+ 	width: 80%;
 	margin: auto;
 }
 
 
-.element {
-	width: 300px;
-	min-height: 400px;
+.element, {
+	width: 400px;
+	height: 500px;
 	background-color:#f7f5e7;
-	margin: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
 }	
+
+.home .hentry  {
+	width: 400px;
+	height: 500px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
 
 /**** Isotope filtering ****/
 

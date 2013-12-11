@@ -45,13 +45,14 @@ echo $category->slug . ' ';} ?>">
 				</div>
 			<?php endwhile; ?>
 
-			<?php twentythirteen_paging_nav(); ?>
+			
 
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
 
 		</div><!-- #content -->
+		<?php twentythirteen_paging_nav(); ?>
 	</div><!-- #primary -->
 
 <?php get_sidebar(); ?>

@@ -596,6 +596,7 @@ add_action('wp_enqueue_scripts', 'custom_theme_js');
  * Infinite Scroll
  */
 function woodd_infinite_scroll_js() {
+
 	if( ! is_singular() ) { ?>
 
 	 <script type="text/javascript">
@@ -610,38 +611,31 @@ function woodd_infinite_scroll_js() {
 
       $container.infinitescroll({
 
+
+
         navSelector  : '.paging-navigation',    // selector for the paged navigation 
         nextSelector : '.nav-previous a',  // selector for the NEXT link (to page 2)
-        itemSelector : '.element',     // selector for all items you'll retrieve
-        loadingText  : "",      
+        itemSelector : '.element',     // selector for all items you'll retrieve    
                  // text accompanying loading image
                  // default: "<em>Loading the next set of posts...</em>"
-        donetext     : "" ,
-                 // text displayed when all items have been retrieved
-                 // default: "<em>Congratulations, you've reached the end of the internet.</em>"
  
-  		bufferPx     : 50,
-                 // increase this number if you want infscroll to fire quicker
-                 // (a high number means a user will not see the loading message)
-                 // new in 1.2
-                 // default: 40
- 
-  		errorCallback: function(){},
+  		errorCallback: function(){ $('.paging-navigation').remove();},
                  // called when a requested page 404's or when there is no more content
                  // new in 1.2                  
         extraScrollPx: 0,  
-        animate      : false,      
-                 // boolean, if the page will do an animated scroll when new content loads
-                 // default: false
-        loading: {
 
+        loading: {
+        	finished: '',
             finishedMsg: '',
             img: ''
           }
 
+
+
         },
 
         // call Isotope as a callback
+
 
         function( newElements ) {
           $container.isotope( 'appended', $( newElements ) ); 
@@ -667,8 +661,10 @@ function infinite_scroll_js()
 {
 
 	wp_register_script( 'infinite_scroll',  get_template_directory_uri() . '/js/jquery.infinitescroll.min.js', array('jquery'),null,true );
+	wp_register_script( 'waypoints',  get_template_directory_uri() . '/js/waypoints.min.js', array('jquery'),null,true );
 
         wp_enqueue_script('infinite_scroll');	
+        wp_enqueue_script('waypoints');
 
 }
 
@@ -679,13 +675,12 @@ add_action('wp_enqueue_scripts', 'infinite_scroll_js');
  * force WordPress to return a 404.
  * See http://core.trac.wordpress.org/ticket/15770
  */
-function custom_paged_404_fix() {
+/*function custom_paged_404_fix() {
 	
 	$paged 	= (get_query_var('paged')) ? get_query_var('paged') : 1;
 	if (($paged && $paged > 1) && !have_posts())
 		{
-		header($_SERVER["SERVER_PROTOCOL"]." 404 Not Found");
-		header("Status: 404 Not Found");
+		echo "<script>alert ('Bonjour') ;</script>";
 		}	
 	}
-add_action( 'wp', 'custom_paged_404_fix' );
+add_action( 'wp', 'custom_paged_404_fix' );*/

@@ -48,6 +48,115 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 
 /**
+ * Customization
+ * ----------------------------------------------------------------------------
+ */
+
+object,
+iframe {
+	border-top-left-radius:10px !important;
+	border-top-right-radius:10px !important;
+}
+
+.ytb {
+    border-top-left-radius:10px !important;
+	border-top-right-radius:10px !important;
+    padding: 10px;
+    background: black;
+    height: 225px;
+}
+
+/* isotope animation settings */
+.isotope,
+.isotope .isotope-item {
+  /* change duration value to whatever you like */
+  -webkit-transition-duration: 0.5s;
+     -moz-transition-duration: 0.5s;
+      -ms-transition-duration: 0.5s;
+       -o-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:         top, left, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+
+ a#inifiniteLoader{  
+    position: fixed;    
+    z-index: 2;     
+    display:none;  
+} 
+
+#content {
+	width: 1180px;
+	margin: 0 auto;
+}
+
+.container {
+  /* either of these will work for horizontal Isotope layouts */
+ 	width: 80%;
+	margin: auto;
+}
+
+
+.element, {
+	width: 3600px;
+	height: 500px;
+	background-color:#f7f5e7;
+	margin-right: 30px;
+	margin-bottom: 30px;
+}	
+
+.home .hentry  {
+	width: 360px;
+	height: 500px;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	border-radius: 10px;
+
+}
+
+.navigation  {
+	display:none;
+}
+
+/**** Isotope filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**
  * 1.0 Reset
  *
  * Modified from Normalize.css to provide cross-browser consistency and a smart
@@ -967,95 +1076,7 @@ ul.nav-menu li:hover > ul,
  * ----------------------------------------------------------------------------
  */
 
- /* isotope animation settings */
-.isotope,
-.isotope .isotope-item {
-  /* change duration value to whatever you like */
-  -webkit-transition-duration: 0.5s;
-     -moz-transition-duration: 0.5s;
-      -ms-transition-duration: 0.5s;
-       -o-transition-duration: 0.5s;
-          transition-duration: 0.5s;
-}
-
-.isotope {
-  -webkit-transition-property: height, width;
-     -moz-transition-property: height, width;
-      -ms-transition-property: height, width;
-       -o-transition-property: height, width;
-          transition-property: height, width;
-}
-
-.isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-     -moz-transition-property:    -moz-transform, opacity;
-      -ms-transition-property:     -ms-transform, opacity;
-       -o-transition-property:         top, left, opacity;
-          transition-property:         transform, opacity;
-}
-
-/**** disabling Isotope CSS3 transitions ****/
-
-.isotope.no-transition,
-.isotope.no-transition .isotope-item,
-.isotope .isotope-item.no-transition {
-  -webkit-transition-duration: 0s;
-     -moz-transition-duration: 0s;
-      -ms-transition-duration: 0s;
-       -o-transition-duration: 0s;
-          transition-duration: 0s;
-}
-
-
- a#inifiniteLoader{  
-    position: fixed;    
-    z-index: 2;     
-    display:none;  
-} 
-
-#content {
-	width: 1180px;
-	margin: 0 auto;
-}
-
-.container {
-  /* either of these will work for horizontal Isotope layouts */
- 	width: 80%;
-	margin: auto;
-}
-
-
-.element, {
-	width: 3600px;
-	height: 500px;
-	background-color:#f7f5e7;
-	margin-right: 30px;
-	margin-bottom: 30px;
-}	
-
-.home .hentry  {
-	width: 360px;
-	height: 500px;
-	margin-right: 30px;
-	margin-bottom: 30px;
-	border-radius: 10px;
-	padding: 10px;
-}
-
-.navigation  {
-	display:none;
-}
-
-/**** Isotope filtering ****/
-
-.isotope-item {
-  z-index: 2;
-}
-
-.isotope-hidden.isotope-item {
-  pointer-events: none;
-  z-index: 1;
-}
+ 
 
 .entry-header,
 .entry-content,

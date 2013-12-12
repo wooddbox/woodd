@@ -13,14 +13,25 @@
 		<?php if ( is_single() ) : ?>
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 		<?php else : ?>
-		<h1 class="entry-title">
-			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-		</h1>
+			<?php
+			if(get_field('youtube_id')){
+			?>
+			<div class="ytb">
+			<iframe id="ytplayer" type="text/html" width="360" height="202.5"
+			src="https://www.youtube.com/embed/<?php echo get_field('youtube_id'); ?>?rel=0&showinfo=0&autohide=1&color=white&theme=light"
+			frameborder="0" allowfullscreen>
+			</iframe>
+			</div>
+			<?php
+			}?>
 		<?php endif; // is_single() ?>
 	</header><!-- .entry-header -->
+	<div class="entry-title">
 
+
+	</div><!-- .entry-title -->
 	<div class="entry-content">
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?>
+
 		<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
 	</div><!-- .entry-content -->
 

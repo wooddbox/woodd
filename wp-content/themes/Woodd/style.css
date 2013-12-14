@@ -56,11 +56,12 @@ object,
 iframe {
 	border-top-left-radius:10px !important;
 	border-top-right-radius:10px !important;
+
 }
 
 .ytb {
-    border-top-left-radius:10px !important;
-	border-top-right-radius:10px !important;
+    border-top-left-radius:5px !important;
+	border-top-right-radius:5px !important;
     padding: 10px;
     background: black;
     height: 225px;
@@ -125,22 +126,63 @@ iframe {
 	margin: auto;
 }
 
+.hentry .entry-header {
+	margin-bottom: 0px;
+}
+
+.hentry h4 {
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+.hentry h6 {
+	border-bottom: 1px dotted #b2b2b2;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.hentry ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin-bottom: 5px;
+	margin-top: 5px;
+}
+
+.hentry .entry-meta {
+	margin-top: 0;
+	padding: 10px
+}
+
+.hentry p {
+	margin-bottom: 0;
+}
+
+.entry-content {
+	text-align:justify;
+	padding: 10px;
+}
+
 
 .element, {
 	width: 3600px;
-	height: 500px;
+	/*height: 500px;*/
 	background-color:#f7f5e7;
 	margin-right: 30px;
 	margin-bottom: 30px;
+	padding: 10px;
 }	
 
+.search .hentry,
+.archive .hentry,
 .home .hentry  {
 	width: 360px;
-	height: 500px;
+	/*height: 500px;*/
 	margin-right: 30px;
 	margin-bottom: 30px;
 	border-radius: 10px;
-
+	background: #db572f !important;
+	border: solid;
+	border-color: black;
 }
 
 .navigation  {
@@ -157,6 +199,7 @@ iframe {
   pointer-events: none;
   z-index: 1;
 }
+
 
 /**
  * 1.0 Reset
@@ -218,6 +261,7 @@ textarea {
 }
 
 body {
+	/*background-color: black;*/
 	background: url(images/bg.png) repeat;
 	color: #141412;
 	line-height: 1.5;
@@ -2897,8 +2941,8 @@ footer.entry-meta {
 	.comment-respond,
 	.sidebar .site-info,
 	.sidebar .paging-navigation .nav-links {
-		padding-left: 20px;
-		padding-right: 20px;
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 
 	#content .format-status .entry-content,

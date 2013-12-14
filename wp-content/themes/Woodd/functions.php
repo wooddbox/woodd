@@ -557,7 +557,12 @@ function my_masonry() {
 			<script>
 				jQuery(document).ready(function($){
 					var $container = $('#content');
-					$container.isotope({ layoutMode : 'fitRows' });
+					$container.isotope(
+						{
+						masonryHorizontal: {
+						rowHeight: 360
+							}
+						});
 					// filter items when filter link is clicked
 					$('#filters a').click(function(){
 					  var selector = $(this).attr('data-filter');
@@ -675,3 +680,13 @@ add_action('wp_enqueue_scripts', 'infinite_scroll_js');
 		}	
 	}
 add_action( 'wp', 'custom_paged_404_fix' );*/
+
+function custom_excerpt_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+function new_excerpt_more( $more ) {
+	return ' ... <a class="read-more" href="'. get_permalink( get_the_ID() ) . '"> Read More</a>';
+}
+add_filter( 'excerpt_more', 'new_excerpt_more' );

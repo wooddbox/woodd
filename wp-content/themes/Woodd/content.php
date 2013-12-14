@@ -36,10 +36,16 @@
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
-	<?php else : ?>
+	<?php endif; ?>
 	<div class="entry-content">
+		<?php if ( is_single() ) : ?>
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentythirteen' ) ); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentythirteen' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+		<?php else : ?>
+		<?php the_excerpt(); ?>
+		
+		
+	
 	</div><!-- .entry-content -->
 	<?php endif; ?>
 

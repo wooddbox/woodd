@@ -36,9 +36,9 @@ get_header(); ?>
     <div id="content">
     	
     
-
+<!-- 
 			<div class="hentry">slider</div>
-			<div class="hentry">slider</div>
+			<div class="hentry">slider</div> -->
 			
 			
 			
@@ -48,7 +48,7 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				
 				<div class="item normal element <?php foreach(get_the_category() as $category) {
-echo $category->slug . ' ';} ?>">
+				echo $category->slug . ' ';} ?>">
 				<?php get_template_part( 'content', get_post_format() ); ?>
 				</div>
 			<?php endwhile; ?>

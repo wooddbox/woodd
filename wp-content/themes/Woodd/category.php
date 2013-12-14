@@ -12,9 +12,8 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
 
-		<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
 			<header class="archive-header">
 				<h1 class="archive-title"><?php printf( __( 'Category Archives: %s', 'twentythirteen' ), single_cat_title( '', false ) ); ?></h1>
 
@@ -23,9 +22,15 @@ get_header(); ?>
 				<?php endif; ?>
 			</header><!-- .archive-header -->
 
+		<div id="content" class="site-content" role="main">
+
+
 			<?php /* The loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
+				<div class="item normal element <?php foreach(get_the_category() as $category) {
+echo $category->slug . ' ';} ?>">
 				<?php get_template_part( 'content', get_post_format() ); ?>
+				</div>
 			<?php endwhile; ?>
 
 			<?php twentythirteen_paging_nav(); ?>

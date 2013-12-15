@@ -17,16 +17,19 @@
 get_header(); ?>
 
 				<?php
-	 	$terms = get_terms("category");
+	 	$terms = get_terms("category", array(
+		 	'orderby'    => 'count',
+		 	'hide_empty' => 0
+		 ));
 	 	$count = count($terms); ?>
 	 	<ul id="filters">
-	 	<li><a href="#" data-filter="*">Show all</a></li>
+	 	<a href="#" data-filter="*">Show all |</a>
 	 	<?php
 	 	if ( $count > 0 ){
 	    foreach ( $terms as $term ) {
 	    $category_name = $term->name;
 	    $category = $term->slug;
-	    echo '<li><a href="#" data-filter=".'. $category .'">'. $category_name .'</a></li>';   
+	    echo '<a href="#" data-filter=".'. $category .'">'. $category_name .' | </a>';   
 	    }
 	    echo "</ul>";
 		}

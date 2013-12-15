@@ -22,6 +22,9 @@
 
 <!-- HEADER -->
 	<header class="entry-header">
+		<h4><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+		<span class="meta-category icon-<?php echo get_post_format(); ?>"><?php the_category(', '); ?></span>
+
 		<?php if ( is_single() ) : ?>
 			
 			<span class="meta-published"><strong><?php echo human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' '.  __('ago', 'engine'); ?></strong></span>
@@ -41,21 +44,36 @@
 		    <div class="corner bottomright"></div>
 		    <div class="corner bottomleft"></div>
 			</div>
+			<?php } ?>
+			<?php
+			if(get_field('vimeo_id')){
+			?>
+			<div class="ytb">
+			<iframe src="//player.vimeo.com/video/<?php echo get_field('vimeo_id'); ?>" width="360" height="202.5" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<div class="corner topleft"></div>
+		    <div class="corner topright"></div>
+		    <div class="corner bottomright"></div>
+		    <div class="corner bottomleft"></div>
+			</div>
 			<?php
 			}?>
 		<?php endif; // is_single() ?>		
 	</header><!-- .entry-header -->
 
 <!-- CONTENT -->
-	<div class="entry-content">
+	<?php if( get_the_content()) { ?>	
+	<div class="entry-content"> 
+		
 		<?php if ( is_single() ) : ?>
 		<?php the_content(); ?>
 		<?php else : ?>
-		<h6><?php the_category(); ?></h6>	
-		<h4><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
+		
+
 		<?php the_excerpt(); ?>
-		<?php endif; // is_single() ?>	
+		<?php endif; // is_single() ?>
+			
 	</div><!-- .entry-content -->
+	<?php } ?>
 
 <!-- FOOTER META -->
 	<footer class="entry-meta">

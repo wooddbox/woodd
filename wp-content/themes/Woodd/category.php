@@ -11,6 +11,38 @@
 
 get_header(); ?>
 
+<?php
+$term_id = 4;
+$taxonomy_name = 'category';
+$termchildren = get_term_children( $term_id, $taxonomy_name );
+
+echo '<ul>';
+foreach ( $termchildren as $child ) {
+	$term = get_term_by( 'id', $child, $taxonomy_name );
+	echo '<li><a href="' . get_term_link( $child, $taxonomy_name ) . '">' . $term->name . '</a></li>';
+}
+echo '</ul>';
+?>
+
+				<?php
+	$terms = get_terms( 'category' , 'parent='.get_query_var('cat') );
+
+
+	 	$terms = get_terms("category");
+	 	$count = count($terms); ?>
+	 	<ul id="filters">
+	 	<a href="#" data-filter="*">Show all |</a>
+	 	<?php
+	 	if ( $count > 0 ){
+	    foreach ( $terms as $term ) {
+	    $category_name = $term->name;
+	    $category = $term->slug;
+	    echo '<a href="#" data-filter=".'. $category .'">'. $category_name .' | </a>';   
+	    }
+	    echo "</ul>";
+		}
+		?>
+
 	<div id="primary" class="content-area">
 
 			<?php if ( have_posts() ) : ?>

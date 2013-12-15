@@ -52,20 +52,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  * ----------------------------------------------------------------------------
  */
 
-object,
-iframe {
-	border-top-left-radius:10px !important;
-	border-top-right-radius:10px !important;
 
-}
-
-.ytb {
-    border-top-left-radius:5px !important;
-	border-top-right-radius:5px !important;
-    padding: 10px;
-    background: black;
-    height: 225px;
-}
 
 /* isotope animation settings */
 .isotope,
@@ -107,7 +94,20 @@ iframe {
 }
 
 
+/*object,
+iframe {
+	border-top-left-radius:10px !important;
+	border-top-right-radius:10px !important;
 
+}*/
+
+.ytb {
+/*    border-top-left-radius:5px !important;
+	border-top-right-radius:5px !important;
+    padding: 10px;
+    background: black;*/
+/*    height: 225px;
+*/}
 
  a#inifiniteLoader{  
     position: fixed;    
@@ -132,7 +132,10 @@ iframe {
 
 .hentry h4 {
 	margin-top: 10px;
-	margin-bottom: 5px;
+	margin-bottom: 0px;
+	min-height: 45px;
+	padding: 10px;
+	vertical-align: middle;
 }
 
 .hentry h6 {
@@ -162,9 +165,23 @@ iframe {
 	padding: 10px;
 }
 
+.item .meta-category {
+	text-transform: uppercase;
+	font-size: 11px;
+	margin: 0 0 0 0;
+	font-weight: bold;
+	display: block;
+	border-top: 1px dotted #b2b2b2;
+	padding: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 95%;
+	padding-left: 0;
+}
+
 
 .element, {
-	width: 3600px;
+	width: 360px;
 	/*height: 500px;*/
 	background-color:#f7f5e7;
 	margin-right: 30px;
@@ -181,9 +198,34 @@ iframe {
 	margin-bottom: 30px;
 	border-radius: 10px;
 	background: #db572f !important;
-	border: solid;
-	border-color: black;
+/*	border: solid;
+	border-color: black;*/
+	-moz-box-shadow: 2px 2px 1px 0px #555;
+	-webkit-box-shadow: 2px 2px 1px 0px #555;
+	box-shadow: 2px 2px 1px 0px #555;
 }
+
+.icon-video {
+	background: url(images/icons/video.png) no-repeat right;
+}
+
+.icon-photo {
+	background: url(images/icons/photo.png) no-repeat right;
+}
+
+.icon-son {
+	background: url(images/icons/son.png) no-repeat right;
+}
+
+.icon-gallery {
+	background: url(images/icons/gallery.png) no-repeat right;
+}
+
+.icon- {
+	background: url(images/icons/uncategorized.png) no-repeat right;
+}
+
+
 
 .navigation  {
 	display:none;

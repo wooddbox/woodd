@@ -79,6 +79,9 @@
 	<footer class="entry-meta">
 <!-- 		<p><?php the_date(); ?></p>
 		<p><?php the_tags(); ?></p> -->
+		<?php if ( is_archive() ) : ?>
+
+		<?php endif; // is_archive() ?>
 		<?php edit_post_link( __( 'Edit', 'twentythirteen' ), '<span class="edit-link">', '</span>' ); ?>
 
 

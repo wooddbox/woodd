@@ -19,11 +19,12 @@ get_header(); ?>
 				<?php
 	 	$terms = get_terms("category", array(
 		 	'orderby'    => 'count',
-		 	'hide_empty' => 0
+		 	'hide_empty' => 0,
+		 	'parent'	 => 0,
 		 ));
 	 	$count = count($terms); ?>
 	 	<ul id="filters">
-	 	<a href="#" data-filter="*">Show all |</a>
+	 	<a href="#" data-filter="*" class="active">Show all |</a>
 	 	<?php
 	 	if ( $count > 0 ){
 	    foreach ( $terms as $term ) {

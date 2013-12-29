@@ -10,6 +10,8 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
+		
+		<?php if (function_exists('breadcrumbs')) breadcrumbs(); ?>
 		<div id="content" class="site-content" role="main">
 
 			<?php /* The loop */ ?>

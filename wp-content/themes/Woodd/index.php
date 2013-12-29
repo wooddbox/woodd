@@ -16,7 +16,7 @@
 
 get_header(); ?>
 
-				<?php
+		<?php
 	 	$terms = get_terms("category", array(
 		 	'orderby'    => 'count',
 		 	'hide_empty' => 0,

@@ -1,0 +1,23 @@
+/*-----------------------------------------------------------------------------------*/
+/*	Engine Framework Changelog
+/*-----------------------------------------------------------------------------------*/
+
+
+Engine 1.2 - January 3, 2012
+	
+	* Updated to compile with the Theme Check plugin
+	* Fix shortcodes displaying before content
+	* Default and Extras CSS tweaks
+	* Added custom thumbnail support
+
+
+Engine 1.1 - December 19, 2011
+
+	* Added custom post editor styles dropdown, buttons and quicktags
+	* Added archives and sitemap shortcodes
+	* Major file/folder reorg and cleanup
+
+
+Engine 1.0 - December 1, 2011
+
+	* Initial release

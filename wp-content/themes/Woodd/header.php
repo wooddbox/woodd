@@ -32,7 +32,7 @@
     
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/supersized.css" type="text/css" media="screen">
     <script src="<?php echo get_template_directory_uri(); ?>/js/supersized.3.2.7.min.js"></script>
-    <script type="text/javascript">
+  <!--  <script type="text/javascript">
             
             jQuery(function($){
                 console.log('go');
@@ -50,17 +50,20 @@
                     horizontal_center       :   1,          // Horizontally center background
                     fit_always              :   0,          // Image will never exceed browser width or height (Ignores min. dimensions)
                     fit_portrait            :   0,          // Portrait images will not exceed browser height
-                    fit_landscape           :   0,          // Landscape images will not exceed browser width
+                    fit_landscape           :   1,          // Landscape images will not exceed browser width
                                                                
                     // Components
                     slides                  :   [           // Slideshow Images
                                                         {image : 'wp-content/themes/Woodd/images/background.jpg'}
+
+                                                        
                                                 ]
                     
                 });
             });
             
         </script>
+        -->
         
 </head>
 
